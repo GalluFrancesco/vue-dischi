@@ -1,8 +1,10 @@
 <template>
-    <main>
-        <card-disc v-for="(disc, index) in discList"
-        :key="index"
-        :disc="disc" />
+    <main class="vh-100">
+        <div class="d-flex flex-wrap justify-content-between container-disc">
+            <card-disc v-for="(disc, index) in discList"
+            :key="index"
+            :disc="disc" />
+        </div>
     </main>
 </template>
 
@@ -20,5 +22,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    main{
+        background-color: #1E2D3B;
+
+        .container-disc{
+        width: 1100px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    }
 
 </style>
