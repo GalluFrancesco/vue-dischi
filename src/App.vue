@@ -1,15 +1,17 @@
 <template>
   <div id="app">
-    
+    <main-box :discList="discList"/>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import MainBox from './components/MainBox.vue'
 
 export default {
   name: 'App',
   components: {
+    MainBox
 
   },
   data(){
