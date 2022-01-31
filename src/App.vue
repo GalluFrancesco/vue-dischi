@@ -19,13 +19,15 @@ export default {
   },
   data(){
     return{
-      discList:[]
+      discList:[],
+      timer: 0
     }
   },
   mounted(){
     axios.get('https://flynn.boolean.careers/exercises/api/array/music').then((list) =>{
-      this.discList=list.data.response;
-      console.log(list)
+      this.timer=setTimeout(() => {
+        this.discList=list.data.response;     
+      }, 2000)
     })
   }
 }

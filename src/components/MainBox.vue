@@ -1,18 +1,25 @@
 <template>
-    <main class="vh-100">
-        <div class="d-flex flex-wrap justify-content-between container-disc pt-5">
-            <card-disc v-for="(disc, index) in discList"
-            :key="index"
-            :disc="disc" />
+    <main class="vh-100 position-relative">
+        <div v-if="discList.length===10">
+            <div class="d-flex flex-wrap justify-content-between container-disc pt-5">
+                <card-disc v-for="(disc, index) in discList"
+                :key="index"
+                :disc="disc" />
+            </div>
+        </div>
+        <div v-if="discList.length<10">
+            <main-loader />
         </div>
     </main>
 </template>
 
 <script>
 import CardDisc from './CardDisc.vue'
+import MainLoader from './MainLoader.vue'
 export default {
     components: {
-        CardDisc
+        CardDisc,
+        MainLoader
     },
     props:{
         discList:Array
