@@ -1,9 +1,8 @@
 <template>
     <header>
-        <select v-model="genreSelected">
+        <select v-model="genreSelected" @change="$emit('selected', genreSelected)">
             <option v-for='(genre, index) in genres'
-            :key='index'
-            @click="debug()">
+            :key='index'>
                 {{genre}}
             </option>
         </select>
@@ -19,13 +18,7 @@ export default {
     },
     props:{
         genres: Array
-    },
-    methods:{
-        debug(){
-            console.log("funziona")
-        }
-    }
-    
+    }    
 }
 </script>
 
