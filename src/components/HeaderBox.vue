@@ -25,6 +25,12 @@ export default {
 <style lang="scss" scoped>
     header{
         height: 100px;
+        line-height: 100px;
         background-color: #2E3A46;
+        padding: 0 24px;
+
+        select{
+            width: 100px;
+        }
     }
 </style>
