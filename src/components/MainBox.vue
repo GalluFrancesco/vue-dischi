@@ -4,7 +4,7 @@
             <main-loader />
         </div>
         <div v-else>
-            <div class="d-flex flex-wrap justify-content-between container-disc pt-5">
+            <div class="d-flex flex-wrap justify-content-center container-disc pt-5">
                 <card-disc v-for="(disc, index) in discList"
                 :key="index"
                 :disc="disc" />

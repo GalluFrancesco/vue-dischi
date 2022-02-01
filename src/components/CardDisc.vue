@@ -1,5 +1,5 @@
 <template>
-    <div class="disc-card py-3 px-2 mb-4">
+    <div class="disc-card py-3 px-2 mb-4 mx-2">
         <div class="img-box mb-2">
             <img class="img-fluid" :src="disc.poster" alt="">
         </div>
