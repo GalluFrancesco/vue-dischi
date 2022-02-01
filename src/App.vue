@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <header-box />
-    <main-box :discList="discList"/>
+    <header-box @selected="filterResult" :genres="genreList"/>
+    <main-box :discList="discFiltered"/>
   </div>
 </template>
 
@@ -20,13 +20,32 @@ export default {
   data(){
     return{
       discList:[],
+      discFiltered:[],
+      genreList:['All'],
       timer: 0
     }
+  },
+  methods:{
+    fillGenreList(){
+        this.discList.forEach(disc => {
+          if(!this.genreList.includes(disc.genre)){
+            this.genreList.push(disc.genre)
+          }
+        });
+    },
+    filterResult(word){
+        console.log('debug')
+        this.discFiltered= this.discList.filter((disc) =>{
+          return disc.genre===word || word==='All';
+        })
+    },
   },
   mounted(){
     axios.get('https://flynn.boolean.careers/exercises/api/array/music').then((list) =>{
       this.timer=setTimeout(() => {
-        this.discList=list.data.response;     
+        this.discList=list.data.response;
+        this.discFiltered=this.discList;
+        this.fillGenreList();   
       }, 2000)
     })
   }

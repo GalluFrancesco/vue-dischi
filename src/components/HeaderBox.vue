@@ -1,9 +1,30 @@
 <template>
-    <header></header>
+    <header>
+        <select v-model="genreSelected">
+            <option v-for='(genre, index) in genres'
+            :key='index'
+            @click="debug()">
+                {{genre}}
+            </option>
+        </select>
+    </header>
 </template>
 
 <script>
 export default {
+    data(){
+        return{
+            genreSelected:""
+        }
+    },
+    props:{
+        genres: Array
+    },
+    methods:{
+        debug(){
+            console.log("funziona")
+        }
+    }
     
 }
 </script>
